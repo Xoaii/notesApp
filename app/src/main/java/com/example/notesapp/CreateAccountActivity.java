@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 
 public class CreateAccountActivity extends AppCompatActivity {
     EditText emailEditText,passwordEditText,confirmPasswordEditText;
-    Button createAcccountBtn;
+    Button createAccountBtn;
     ProgressBar progressBar;
     TextView loginBtnTextView;
 
@@ -34,10 +34,10 @@ public class CreateAccountActivity extends AppCompatActivity {
         emailEditText=findViewById(R.id.Email_edit_text);
         passwordEditText=findViewById(R.id.password_edit_text);
         confirmPasswordEditText=findViewById(R.id.comfirm_password_edit_text);
-        createAcccountBtn =findViewById(R.id.create_account_btn);
+        createAccountBtn =findViewById(R.id.create_account_btn);
         progressBar =findViewById(R.id.progress_bar);
         loginBtnTextView=findViewById(R.id.login_text_view_btn);
-        createAcccountBtn.setOnClickListener(v->CreateAccount());
+        createAccountBtn.setOnClickListener(v->CreateAccount());
         loginBtnTextView.setOnClickListener(v->finish());
     }
     void CreateAccount(){
@@ -63,13 +63,15 @@ public class CreateAccountActivity extends AppCompatActivity {
                         changeInProgress(false);
                         if(task.isSuccessful()){
                             // tạo acc thành công
-                            Toast.makeText(CreateAccountActivity.this,"Succesfully create account,Check email to verify",Toast.LENGTH_SHORT).show();
+                            Utility.showToast(CreateAccountActivity.this,"Succesfully create account,Check email to verify");
+
                             firebaseAuth.getCurrentUser().sendEmailVerification();
                             firebaseAuth.signOut();
                             finish();
                         }else {
                             //failure
-                            Toast.makeText(CreateAccountActivity.this,task.getException().getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                            Utility.showToast(CreateAccountActivity.this,task.getException().getLocalizedMessage());
+
 
 
                         }
@@ -81,11 +83,11 @@ public class CreateAccountActivity extends AppCompatActivity {
     void changeInProgress(boolean inProgress){
         if(inProgress){
             progressBar.setVisibility(View.VISIBLE);
-            createAcccountBtn.setVisibility(View.GONE);
+            createAccountBtn.setVisibility(View.GONE);
         }
         else{
             progressBar.setVisibility(View.GONE);
-            createAcccountBtn.setVisibility(View.VISIBLE);
+            createAccountBtn.setVisibility(View.VISIBLE);
         }
 
     }
