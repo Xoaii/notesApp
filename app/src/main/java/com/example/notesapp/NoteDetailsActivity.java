@@ -8,14 +8,14 @@ import android.widget.ImageButton;
 
 public class NoteDetailsActivity extends AppCompatActivity {
     EditText titleEditText,contentEditText;
-    ImageButton saveNoteBtn
+    ImageButton saveNoteBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_details);
-        titleEdit=findViewById(R.id.notes_title_text);
-        contentEdit=findViewById(R.id.notes_content_text);
+        titleEditText=findViewById(R.id.notes_title_text);
+        contentEditText=findViewById(R.id.notes_content_text);
         saveNoteBtn=findViewById(R.id.save_note_btn);
         saveNoteBtn.setOnClickListener((v)->saveNote());
 
