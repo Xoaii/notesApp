@@ -1,5 +1,6 @@
 package com.example.notesapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.widget.Toast;
 
@@ -13,7 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 
-public class Utility {
+public class Utility extends Activity {
     static void showToast(Context context,String message){
         Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
     }
@@ -25,6 +26,6 @@ public class Utility {
 
     }
     static String timestampToString(Timestamp timestamp){
-         return new  SimpleDateFormat("MM/dd/yyyy").format(timestamp.toDate());
+         return new SimpleDateFormat("MM/dd/yyyy").format(timestamp.toDate());
     }
 }
