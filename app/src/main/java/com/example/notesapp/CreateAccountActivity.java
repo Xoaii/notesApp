@@ -63,7 +63,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                         changeInProgress(false);
                         if(task.isSuccessful()){
                             // tạo acc thành công
-                            Utility.showToast(CreateAccountActivity.this,"Succesfully create account,Check email to verify");
+                            Utility.showToast(CreateAccountActivity.this,"Tạo tài khoản thành công, Kiểm tra email để xác minh");
 
                             firebaseAuth.getCurrentUser().sendEmailVerification();
                             firebaseAuth.signOut();
@@ -94,15 +94,15 @@ public class CreateAccountActivity extends AppCompatActivity {
     boolean validateData(String email,String password,String confirmPassword){
         //validate the data are input by user.
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            emailEditText.setError("email is invalid");
+            emailEditText.setError("Email không hợp lệ");
             return false;
         }
         if (password.length()<6){
-            passwordEditText.setError("Password length is invalid");
+            passwordEditText.setError("Password phải nhiều hơn 6 ký tự");
             return false;
         }
         if (!password.equals(confirmPassword)){
-            confirmPasswordEditText.setError("Password not matched");
+            confirmPasswordEditText.setError("Password không giống nhau");
             return false;
         }
         return true;

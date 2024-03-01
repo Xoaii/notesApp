@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                             finish();
                         }else {
 
-                            Utility.showToast(LoginActivity.this,"Email not verified,Please verify your email.");
+                            Utility.showToast(LoginActivity.this,"Email chưa được xác minh, Vui lòng xác minh email của bạn.");
                         }
                     }else {
                         //login failed
@@ -89,11 +89,11 @@ public class LoginActivity extends AppCompatActivity {
     boolean validateData(String email,String password){
         //validate the data are input by user.
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            emailEditText.setError("email is invalid");
+            emailEditText.setError("Email không hợp lệ");
             return false;
         }
         if (password.length()<6){
-            passwordEditText.setError("Password length is invalid");
+            passwordEditText.setError("Password cần 6 ký tự trở lên");
             return false;
         }
 

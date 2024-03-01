@@ -79,12 +79,11 @@ public class NoteDetailsActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
                     //note được add
-                    Utility.showToast(NoteDetailsActivity.this,"Note added succesfully");
+                    Utility.showToast(NoteDetailsActivity.this,"Note được thêm thành công");
                     finish();
                 }
                 else {
-                    Utility.showToast(NoteDetailsActivity.this,"Failed while adding note");
-
+                    Utility.showToast(NoteDetailsActivity.this,"Lỗi khi đang thêm Notes");
                 }
             }
         });
@@ -99,11 +98,11 @@ public class NoteDetailsActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
                     //note được xóa
-                    Utility.showToast(NoteDetailsActivity.this,"Note deleted succesfully");
+                    Utility.showToast(NoteDetailsActivity.this,"Xóa note thành công");
                     finish();
                 }
                 else {
-                    Utility.showToast(NoteDetailsActivity.this,"Failed while deleting note");
+                    Utility.showToast(NoteDetailsActivity.this,"Lỗi trong khi đang xóa note");
 
                 }
             }
